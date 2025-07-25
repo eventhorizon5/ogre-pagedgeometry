@@ -51,7 +51,7 @@ protected:
 	typedef std::list<Entity*> EntityList;
 	EntityList mHouseList;
 	ShadowCameraSetupPtr mPSSMSetup;
-	static float getTerrainHeight(const float x, const float z, void *userData = NULL);
+	static Real getTerrainHeight(const Real x, const Real z, void *userData = NULL);
 
 
 	void configureTerrainDefaults(Light* l);
@@ -378,7 +378,7 @@ void PGSampleApp::initBlendMaps(Terrain* terrain)
 
 }
 
-float PGSampleApp::getTerrainHeight(const float x, const float z, void *userData)
+Real PGSampleApp::getTerrainHeight(const Real x, const Real z, void *userData)
 {
 	return gTerrainGroup->getHeightAtWorldPosition(x, 1000, z);
 }
@@ -530,7 +530,7 @@ void PGSampleApp::createPGDemo(void)
 		position.x = Math::RangeRandom(mTerrainPos.x, mTerrainPos.x+TERRAIN_WORLD_SIZE);
 		position.z = Math::RangeRandom(mTerrainPos.z, mTerrainPos.z+TERRAIN_WORLD_SIZE);
 
-		float rnd = Math::UnitRandom();
+		Real rnd = Math::UnitRandom();
 		if (rnd < 0.8f) {
 			scale = Math::RangeRandom(0.6f, 1.4f);
 			bushLoader->addTree(fern, position, yaw, scale);
