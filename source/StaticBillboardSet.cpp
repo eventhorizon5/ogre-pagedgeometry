@@ -509,8 +509,8 @@ MaterialPtr StaticBillboardSet::getFadeMaterial(const Ogre::MaterialPtr &protoMa
             params->setNamedAutoConstant(invisibleDist, GpuProgramParameters::ACT_CUSTOM);
 
             //Set fade ranges
-            params->setNamedConstant(invisibleDist, invisibleDist_);
-            params->setNamedConstant(fadeGap, invisibleDist_ - visibleDist_);
+            params->setNamedConstant(invisibleDist, (float)invisibleDist_);
+            params->setNamedConstant(fadeGap, (float)invisibleDist_ - (float)visibleDist_);
 
             pass->setSceneBlending(SBT_TRANSPARENT_ALPHA);
             //pass->setAlphaRejectFunction(CMPF_ALWAYS_PASS);

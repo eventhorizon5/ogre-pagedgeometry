@@ -116,8 +116,8 @@ void GrassLoader::frameUpdate()
 			if (layer->waveCount > Math::PI*2) layer->waveCount -= Math::PI*2;
 
 			//Set vertex shader parameters
-			params->setNamedConstant("time", layer->waveCount);
-			params->setNamedConstant("frequency", layer->animFreq);
+			params->setNamedConstant("time", (float)layer->waveCount);
+			params->setNamedConstant("frequency", (float)layer->animFreq);
 
 			Vector3 direction = windDir * layer->animMag;
 			params->setNamedConstant("direction", Vector4(direction.x, direction.y, direction.z, 0));
@@ -1201,7 +1201,7 @@ void GrassLayer::_updateShaders()
 
 				if (fadeTechnique == FADETECH_GROW || fadeTechnique == FADETECH_ALPHAGROW){
 					params->setNamedAutoConstant("grassHeight", GpuProgramParameters::ACT_CUSTOM, 1);
-					params->setNamedConstant("grassHeight", maxHeight * 1.05f);
+					params->setNamedConstant("grassHeight", (float)maxHeight * 1.05f);
 				}
 
 				pass->getVertexProgramParameters()->setNamedConstant("fadeRange", fadeRange);

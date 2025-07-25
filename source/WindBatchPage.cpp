@@ -199,10 +199,10 @@ void WindBatchPage::_updateShaders()
 
 							//Set fade ranges
 							params->setNamedAutoConstant("invisibleDist", GpuProgramParameters::ACT_CUSTOM);
-							params->setNamedConstant("invisibleDist", m_fInvisibleDist);
+							params->setNamedConstant("invisibleDist", (float)m_fInvisibleDist);
 
 							params->setNamedAutoConstant("fadeGap", GpuProgramParameters::ACT_CUSTOM);
-							params->setNamedConstant("fadeGap", m_fInvisibleDist - m_fVisibleDist);
+							params->setNamedConstant("fadeGap", (float)m_fInvisibleDist - (float)m_fVisibleDist);
 
 							if (pass->getAlphaRejectFunction() == CMPF_ALWAYS_PASS)
 								pass->setSceneBlending(SBT_TRANSPARENT_ALPHA);
